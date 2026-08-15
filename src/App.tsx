@@ -1,6 +1,6 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 
 import FrontendDeveloperSection from "@/components/FrontendDeveloperSection";
 import Showcase from "@/components/Showcase";
@@ -52,7 +52,7 @@ function HomePage() {
           <a href="#about" onClick={closeMenu}>Expertise</a>
           <a href="#showcase" onClick={closeMenu}>Projects</a>
           <a href="#contact" onClick={closeMenu}>Contact</a>
-          <a href="/about" onClick={closeMenu}>About me</a>
+          <Link to="/about" onClick={closeMenu}>About me</Link>
         </nav>
       )}
 

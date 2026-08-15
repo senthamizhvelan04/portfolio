@@ -1,5 +1,6 @@
 import { ArrowUpRight, ChevronRight, Github } from "lucide-react";
 import { KeyboardEvent, useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import ProjectPreview from "./ProjectPreview";
 
@@ -279,7 +280,7 @@ export default function ShowcaseSection() {
             <div className="eve-actions" style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)', zIndex: 10, display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
                 <a href="#showcase" className="eve-action-btn" onClick={() => { if ((window as any).eveAnimate) (window as any).eveAnimate('wave'); }}>Projects</a>
                 <a href="#decisions" className="eve-action-btn" onClick={() => { if ((window as any).eveAnimate) (window as any).eveAnimate('wave'); }}>Engineering</a>
-                <a href="/about" className="eve-action-btn" onClick={() => { if ((window as any).eveAnimate) (window as any).eveAnimate('wave'); }}>About</a>
+                <Link to="/about" className="eve-action-btn" onClick={() => { if ((window as any).eveAnimate) (window as any).eveAnimate('wave'); }}>About</Link>
                 <a href="#contact" className="eve-action-btn" onClick={() => { if ((window as any).eveAnimate) (window as any).eveAnimate('wave'); }}>Contact</a>
             </div>
         </div>
