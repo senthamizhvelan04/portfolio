@@ -1,6 +1,6 @@
 # SENTHAMIZHVELAN M — Portfolio
 
-An atmospheric, typography-led portfolio built to showcase AI/ML engineering work.
+An atmospheric, typography-led portfolio built to showcase my cloud/devops and  AI/ML engineering work.
 
 **Live** → [https://senthamizhvelan04.github.io/portfolio/](https://senthamizhvelan04.github.io/portfolio/)
 
