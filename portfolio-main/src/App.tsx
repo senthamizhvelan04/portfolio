@@ -58,16 +58,6 @@ function HomePage() {
 
       <main>
         <section id="home" className="hero-section" aria-labelledby="hero-title">
-          <div className="hero-portrait-wrap" aria-hidden="true">
-            <img
-              src={`${import.meta.env.BASE_URL}assets/hero-portrait.png`}
-              alt=""
-              className="hero-portrait"
-              width="1176"
-              height="1338"
-              fetchPriority="high"
-            />
-          </div>
 
           <div className="hero-content">
             <h1 id="hero-title" className="hero-name" aria-label="Thamizh">
