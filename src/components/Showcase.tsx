@@ -29,116 +29,133 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "NeuralRAG — Multi-Tool Agentic RAG Platform",
+    title: "CloudGuardian",
     preview: "neural" as const,
-    label: "Flagship project",
+    label: "AI-Assisted CloudOps Incident Response Platform",
     summary:
-      "Production-oriented agentic AI platform combining hybrid BM25 + ChromaDB retrieval, SQL reasoning, web search, and system tools — with multi-provider LLM routing and ONNX-optimized deployment.",
+      "Event-driven AWS incident-response platform with automated detection, diagnosis, controlled remediation, and recovery verification.",
     contribution:
-      "Built the LangChain agent, hybrid ChromaDB + BM25 retrieval pipeline, SQL safety guard, multi-provider routing with API-key rotation, Flask API, and React/TypeScript product interface.",
+      "Full-stack cloud architecture, CI/CD pipeline, Docker containerization, OIDC authentication, SSM-based remediation engine.",
     challenge:
-      "Balancing retrieval quality, tool safety, provider reliability, and deployment constraints without turning the workflow into an opaque black box.",
-    tech: ["Python", "LangChain", "ChromaDB", "BM25", "Flask", "React/TypeScript"],
-    github: "https://github.com/senthamizhvelan04/Neural-RAG-system",
-    link: "https://neural-rag-system.onrender.com/",
-    architecture: `User → LangChain Agent → Tool Router
-├── Hybrid RAG (ChromaDB + BM25)
-├── Text-to-SQL (SELECT-only guard)
-├── Web Search
-├── System Control
-├── Image Generation
-└── Chart Generation`,
+      "Implementing controlled remediation that prevents arbitrary command execution while still allowing automated recovery through allowlisted SSM actions with human approval gates.",
+    tech: ["AWS", "Docker", "GitHub Actions", "Terraform", "FastAPI", "Prometheus", "EC2", "SSM"],
+    github: "https://github.com/senthamizhvelan04/cloudguardian",
+    architecture: `CloudWatch Alarm
+       ↓
+  EventBridge
+       ↓
+  API Gateway
+       ↓
+    FastAPI
+       ↓
+  Diagnosis Engine
+  ├── Runbook Search
+  └── Incident Rules
+       ↓
+   Risk Engine
+       ↓
+  Human Approval
+       ↓
+  SSM Execution
+       ↓
+ Recovery Verify`,
     highlights: [
-      "6 dynamically toggled tools",
-      "Hybrid BM25 + vector retrieval",
-      "Text-to-SQL with SELECT-only safety guard",
-      "Multi-provider LLM routing with API-key rotation",
-      "React/TypeScript frontend",
-      "Flask backend → Render deployment",
-      "ONNX embedding optimization for boot timeout",
+      "Event-driven alarm pipeline via CloudWatch + EventBridge",
+      "GitHub OIDC — no long-lived AWS credentials",
+      "CI/CD with Ruff, pytest, Trivy security scanning",
+      "Docker images published to Amazon ECR",
+      "Allowlisted SSM remediation actions",
+      "Risk-classified abort/rollback with human approval",
+      "Prometheus metrics + health/readiness endpoints",
+      "10 incident runbooks + Bash failure-injection scripts",
     ],
     decision: {
-      title: "Why disable FlashRank?",
+      title: "Why allowlisted remediation?",
       detail:
-        "FlashRank improved retrieval ranking but introduced unacceptable latency under the deployment platform's 30-second request limit. After profiling, I disabled it in production and prioritized predictable response time.",
+        "CloudGuardian never accepts arbitrary shell commands from the API. Remediation actions are explicitly registered and risk-classified. Sensitive actions require human approval before SSM execution, preventing an external request from turning into arbitrary command execution on the server.",
     },
     metrics: [
-      { value: "6", label: "agent tools" },
-      { value: "<2s", label: "query response" },
-      { value: "500+", label: "documents indexed" },
+      { value: "10", label: "runbooks" },
+      { value: "OIDC", label: "auth" },
+      { value: "<1min", label: "deploy" },
     ],
   },
   {
-    title: "AI-Powered Research Agent",
+    title: "ExamPrep",
     preview: "research" as const,
-    label: "Agentic workflow",
+    label: "AI Question Paper Generator",
     summary:
-      "A hand-built autonomous research system using a Plan–Act–Observe–Reflect loop with dual-LLM resilience, custom tool-call parsing, source verification, and real-time SSE streaming.",
+      "Containerized React/Vite application deployed on AWS EC2 through a fully automated GitHub Actions CI/CD pipeline with Docker multi-stage builds.",
     contribution:
-      "Implemented the Plan–Act–Observe–Reflect loop, custom JSON/XML tool-call parsing, source verification, Groq-to-Gemini fallback, SSE streaming, and Render deployment.",
+      "Docker containerization, CI/CD automation, EC2 deployment, multi-stage builds, GHCR image management, production troubleshooting.",
     challenge:
-      "Handling inconsistent tool-call output, rate limits, conflicting sources, and bounded execution while keeping the final answer traceable.",
-    tech: ["Python", "FastAPI", "Groq", "Gemini", "Tool Calling", "SSE"],
-    github: "https://github.com/senthamizhvelan04/AI-powered-research-agent",
-    link: "https://ai-powered-research-agent-0nm3.onrender.com/",
-    architecture: `Research Question → PLAN → TOOL CALL
-├── Web Search
-├── Webpage Reader
-└── Calculator
-→ OBSERVE → VERIFY → REFLECT → Final Report
-
-Fallback: Groq Llama 3.3 70B → Gemini 2.0 Flash`,
+      "Troubleshooting real deployment issues — EC2 security groups blocking traffic, Docker daemon permission errors, and container replacement without downtime.",
+    tech: ["AWS EC2", "Docker", "GitHub Actions", "GHCR", "Nginx", "React", "Vite", "SSH"],
+    github: "https://github.com/senthamizhvelan04/Question-paper-generator",
+    architecture: `git push (main)
+       ↓
+  GitHub Actions
+  ├── Build Stage
+  │   ├── Docker Build
+  │   └── Push to GHCR
+  └── Deploy Stage
+      ├── SSH to EC2
+      ├── Pull Image
+      └── Run Container
+           ↓
+     Nginx → ExamPrep
+       (Port 80)`,
     highlights: [
-      "Plan–Act–Observe–Reflect reasoning loop",
-      "Custom JSON/XML tool-call parser",
-      "Groq → Gemini dual-provider fallback",
-      "Rate-limit handling with automatic retry",
-      "15-iteration reasoning cap",
-      "Source verification + conflicting-info detection",
-      "SSE streaming to frontend",
-      "Render deployment",
+      "Multi-stage Dockerfile — 27 MB production image",
+      "Dual image tags: latest + commit-SHA for rollback",
+      "Automated EC2 deployment via SSH",
+      "Container restart policies + health checks",
+      "Gemini + Llama 3.3 70B with provider failover",
+      "PDF and Word export functionality",
+      "GitHub Secrets for credential management",
+      "Nginx reverse proxy serving static assets",
     ],
     decision: {
-      title: "Why dual-provider fallback?",
+      title: "Why multi-stage Docker builds?",
       detail:
-        "LLM APIs can fail or hit rate limits mid-research. The agent falls back from Groq Llama 3.3 70B to Gemini 2.0 Flash automatically, so a research session never fails silently.",
+        "The build stage uses Node.js 22 Alpine for compilation, but the production image only contains Nginx Alpine with the compiled static files. Node.js, npm, and source code are excluded entirely, reducing the image from hundreds of megabytes to approximately 27 MB.",
     },
     metrics: [
-      { value: "15", label: "max reasoning iterations" },
-      { value: "2", label: "LLM providers" },
-      { value: "4", label: "tool types" },
+      { value: "27MB", label: "image" },
+      { value: "2", label: "tags/build" },
+      { value: "<1min", label: "deploy" },
     ],
   },
 ];
 
 const technologies = [
   {
-    group: "AI / Retrieval",
-    signal: "Reason",
-    summary: "Grounded model workflows that retrieve context, use tools, route across providers, and stay inside explicit boundaries.",
-    application: "Used in NeuralRAG for hybrid dense + sparse retrieval, and across the research agent for tool calling and provider fallback.",
-    items: ["RAG", "LangChain", "LLM tool calling", "MCP", "Prompt guardrails", "Hybrid Search"],
+    group: "Cloud & AWS",
+    signal: "Infrastructure",
+    summary: "Core cloud infrastructure for compute, monitoring, and event-driven architecture.",
+    application: "Used across CloudGuardian and ExamPrep for compute, monitoring, event routing, and deployment.",
+    items: ["EC2", "VPC", "IAM", "S3", "ECR", "EBS", "RDS", "CloudWatch", "EventBridge", "API Gateway", "SSM", "SNS", "SQS", "ELB", "Auto Scaling", "Route 53", "CloudFront"],
   },
   {
-    group: "Backend",
-    signal: "Serve",
-    summary: "Service layers that turn model and data workflows into reliable, inspectable application capabilities.",
-    application: "Used to expose AI workflows as application services in NeuralRAG (Flask) and the research agent (FastAPI).",
-    items: ["Python", "FastAPI", "Flask", "REST APIs", "n8n"],
+    group: "DevOps & CI/CD",
+    signal: "Automation",
+    summary: "Automated pipelines for build, test, security scanning, and deployment.",
+    application: "Built CI/CD pipelines with security scanning, multi-stage Docker builds, and automated EC2 deployments.",
+    items: ["Git", "GitHub", "GitHub Actions", "Docker", "Docker Compose", "Terraform", "GHCR", "Nginx"],
   },
   {
-    group: "Data",
-    signal: "Ground",
-    summary: "Structured storage and analysis for the evidence, metadata, and operational data behind each system.",
-    application: "ChromaDB + BM25 for NeuralRAG retrieval corpora. SQL for text-to-SQL queries. Pandas/NumPy for data exploration.",
-    items: ["SQL", "PostgreSQL", "MySQL", "ChromaDB", "Pandas", "NumPy"],
+    group: "Linux & Networking",
+    signal: "System",
+    summary: "Foundational operating system management and network configuration.",
+    application: "Managed EC2 instances, configured networking, and automated infrastructure with shell scripts.",
+    items: ["Ubuntu", "Bash", "SSH", "Nginx", "TCP/IP", "DNS", "HTTP/HTTPS", "Subnets", "Routing", "Security Groups", "Load Balancing"],
   },
   {
-    group: "Product",
-    signal: "Ship",
-    summary: "Interfaces and delivery tooling that make complex AI behavior understandable and useful to people.",
-    application: "React/TypeScript frontend for NeuralRAG. Both projects deployed to Render with Git-based delivery.",
-    items: ["React", "TypeScript", "HTML", "CSS", "Git", "Render"],
+    group: "Monitoring & Security",
+    signal: "Observability",
+    summary: "Continuous monitoring, incident response, and security best practices.",
+    application: "Implemented observability, security scanning, and incident detection across production systems.",
+    items: ["Prometheus", "Grafana", "CloudWatch", "CloudTrail", "IAM Least Privilege", "Health Checks", "Secrets Management", "Incident Response", "Trivy"],
   },
 ];
 

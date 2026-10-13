@@ -3,39 +3,43 @@ import { Link } from "react-router-dom";
 
 const capabilities = [
   {
-    title: "Retrieval systems",
-    detail: "Hybrid dense + sparse retrieval, grounded generation, and FastAPI delivery for knowledge-heavy workflows.",
+    title: "AWS Infrastructure",
+    detail: "Building and managing cloud resources with EC2, VPC, IAM, S3, and auto-scaling.",
   },
   {
-    title: "Agent workflows",
-    detail: "Plan–Act–Observe–Reflect loops, tool/function calling, provider fallback, and explicit failure paths.",
+    title: "CI/CD Automation",
+    detail: "End-to-end pipelines with GitHub Actions, Docker builds, and automated deployments.",
   },
   {
-    title: "Applied AI products",
-    detail: "Full-stack interfaces and services that turn model capability into inspectable, deployable workflows.",
+    title: "Containerization",
+    detail: "Docker multi-stage builds, container orchestration, and production optimization.",
+  },
+  {
+    title: "Infrastructure Monitoring",
+    detail: "Prometheus, CloudWatch, health checks, and incident response automation.",
   },
 ];
 
-const skills = ["Python", "RAG", "LangChain", "LLM agents", "FastAPI", "SQL", "ChromaDB", "React"];
+const skills = ["AWS", "Docker", "Terraform", "GitHub Actions", "CI/CD", "Linux", "Prometheus", "Python"];
 
 const proof = [
-  { value: "20%", label: "manual workflow time reduced" },
-  { value: "500+", label: "documents in RAG knowledge access" },
-  { value: "<2s", label: "RAG query response time" },
-  { value: "70%", label: "information retrieval time reduced" },
-  { value: "6", label: "tools in the NeuralRAG agent" },
-  { value: "15", label: "reasoning iterations capped per query" },
+  { value: "10", label: "incident runbooks built" },
+  { value: "27MB", label: "production Docker image size" },
+  { value: "<1min", label: "automated deployment time" },
+  { value: "OIDC", label: "GitHub to AWS authentication" },
+  { value: "20%", label: "workflow processing time reduced" },
+  { value: "0", label: "long-lived credentials in CI/CD" },
 ];
 
 export default function FrontendDeveloperSection() {
   return (
     <section className="expertise-section" aria-labelledby="expertise-title">
       <div className="expertise-heading">
-        <p className="section-kicker">Available for AI/ML opportunities</p>
-        <h2 id="expertise-title">AI systems, built end to end.</h2>
+        <p className="section-kicker">Available for Cloud & DevOps opportunities</p>
+        <h2 id="expertise-title">Cloud systems, built end to end.</h2>
         <p>
-          I work across retrieval, orchestration, APIs, and interface design—taking an AI idea
-          from architecture to a working product with measurable constraints and failure paths.
+          I work across AWS infrastructure, CI/CD automation, containerization, and monitoring—taking
+          cloud systems from architecture to production with measurable constraints and automated recovery.
         </p>
         <div className="expertise-actions">
           <Link className="button button-primary" to="/about">

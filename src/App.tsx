@@ -27,7 +27,7 @@ function HomePage() {
       <header className="site-nav">
         <a className="site-wordmark" href="#home" aria-label="Senthamizhvelan portfolio home">
           <span aria-hidden="true">S</span>
-          <span>SENTHAMIZHVELAN · AI/ML</span>
+          <span>SENTHAMIZHVELAN · DEVOPS</span>
         </a>
 
         <a className="nav-primary-link" href="https://github.com/senthamizhvelan04" target="_blank" rel="noopener noreferrer">
@@ -58,16 +58,6 @@ function HomePage() {
 
       <main>
         <section id="home" className="hero-section" aria-labelledby="hero-title">
-          <div className="hero-portrait-wrap" aria-hidden="true">
-            <img
-              src={`${import.meta.env.BASE_URL}assets/hero-portrait.png`}
-              alt=""
-              className="hero-portrait"
-              width="1176"
-              height="1338"
-              fetchPriority="high"
-            />
-          </div>
 
           <div className="hero-content">
             <h1 id="hero-title" className="hero-name" aria-label="Thamizh">
@@ -75,14 +65,14 @@ function HomePage() {
               <span className="hero-name-outline">MIZH</span>
             </h1>
 
-            <p className="hero-role">AI/ML engineer</p>
-            <p className="hero-statement">Production-oriented RAG pipelines, agentic workflows, and LLM-powered applications.</p>
-            <p className="hero-keywords">Python · RAG · LLM Agents · FastAPI · LangChain · SQL</p>
+            <p className="hero-role">Cloud & DevOps engineer</p>
+            <p className="hero-statement">Event-driven cloud infrastructure, automated CI/CD pipelines, and containerized deployments on AWS.</p>
+            <p className="hero-keywords">AWS · Docker · Terraform · GitHub Actions · CI/CD · Linux</p>
           </div>
         </section>
 
         <section className="intro-rail" aria-label="Introduction">
-          <p>Production-minded RAG pipelines, autonomous research agents, and reliable LLM tooling.</p>
+          <p>AWS infrastructure automation, Docker containerization, and production CI/CD with GitHub Actions.</p>
           <div className="intro-links">
             <a href="mailto:senthamizhvelanm@gmail.com">Email</a>
             <a href="https://github.com/senthamizhvelan04" target="_blank" rel="noopener noreferrer">

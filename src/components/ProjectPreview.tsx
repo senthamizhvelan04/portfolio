@@ -5,8 +5,8 @@ export default function ProjectPreview({ type }: { type: ProjectPreviewType }) {
     return (
       <div className="relative h-full w-full overflow-hidden bg-[#151a1e]">
         <img
-          src={`${import.meta.env.BASE_URL}assets/neural-rag-v4.png`}
-          alt="NeuralRAG System Ready interface"
+          src={`${import.meta.env.BASE_URL}assets/cloudguardian-arch.png`}
+          alt="CloudGuardian architecture diagram"
           className="h-full w-full object-cover object-top brightness-[1.08] contrast-[1.04]"
           loading="lazy"
         />
@@ -25,8 +25,8 @@ export default function ProjectPreview({ type }: { type: ProjectPreviewType }) {
   return (
     <div className="relative h-full w-full overflow-hidden bg-black">
       <img
-        src={`${import.meta.env.BASE_URL}assets/research-agent-v2.png`}
-        alt="AI-Powered Research Agent interface"
+        src={`${import.meta.env.BASE_URL}assets/examprep-app.png`}
+        alt="ExamPrep application running on AWS EC2"
         className="h-full w-full object-cover object-top brightness-[1.22] contrast-[1.08]"
         loading="lazy"
       />
